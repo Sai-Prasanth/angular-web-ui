@@ -1,0 +1,53 @@
+<!-- common-display.component.html -->
+<html>
+
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <div class="common-display-container">
+    <!-- Dynamic Heading -->
+    <div class="collection-hero__text-wrapper">
+      <h1 class="collection-hero__title"><span class="visually-hidden">Collection: </span>{{ dynamicHeading }}</h1>
+      <div class="collection-hero__description rte">
+        <p>{{ dynamicDescription1 }}</p>
+
+        <!-- Dynamic Description -->
+        <p>{{ dynamicDescription }}</p>
+      </div>
+    </div>
+    <!-- Left Side - 5 Values with Dynamic Dropdowns -->
+    <div class="left-side">
+      <div *ngFor="let value of dynamicValues">
+        <p>{{ value.label }}:</p>
+        <select [(ngModel)]="value.selectedOption">
+          <option *ngFor="let option of value.options" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Right Side - 3 Equal Parts with 9 Records in Cards Style -->
+    <div class="right-side">
+      <div *ngFor="let record of records" class="card container" (click)="onRecordClick(record)">
+        <div class="card-content row">
+          <div class="col-sm">
+            <div class="card-image" [style.backgroundImage]="'url(' + record.image + ')'"></div>
+            <div class="hover-overlay" [style.backgroundImage]="'url(' + record.hoverImage + ')'"></div>
+            <div class="card-details">
+              <h3>{{ record.name }}</h3>
+              <p>Price: {{ record.price }}</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- <app-commonproductdisplay [productDetails]="selectedProductDetails"></app-commonproductdisplay> -->
+
+    </div>
+  </div>
+</body>
+
+</html>

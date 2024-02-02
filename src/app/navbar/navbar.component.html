@@ -1,0 +1,37 @@
+<!-- navbar.component.html -->
+<html>
+<head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+</head>
+<body>
+    
+<nav class="navbar">
+    <div class="navbar-brand">
+      <a [routerLink]="['/']">{{ title }}</a>
+    </div>
+    
+    <ul class="navbar-nav">
+      <ng-container *ngFor="let link of links">
+        <li *ngIf="link.label !== 'Collections' else dropdownContent" class="nav-item">
+          <a [routerLink]="[link.path]">{{ link.label }}</a>
+        </li>
+        <ng-template #dropdownContent>
+            
+          <li  class="nav-item dropdown">
+            <a (click)="toggleDropdown()" data-toggle="dropdown">Collections <i class="fa-solid fa-angle-up" style="color:white" ></i></a>
+            <!-- Dropdown content -->
+            <div *ngIf="isDropdownOpen else close" class="dropdown-content">
+              <a routerLink="/commonDisplay">Collection 1</a>
+              <a routerLink="/commonProductDisplay">Collection 2</a>
+              <!-- Add more collections as needed -->
+            </div>
+            <ng-template #close> 
+                <a> <i class="fa-solid fa-angle-down" style="color:white" ></i></a>
+            </ng-template>
+          </li>
+        </ng-template>
+      </ng-container>
+    </ul>
+  </nav>
+</body>
+</html>
+  

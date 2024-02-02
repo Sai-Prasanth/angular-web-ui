@@ -1,0 +1,118 @@
+
+/* common-display.component.css */
+.common-display-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .left-side {
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  .left-side div {
+    margin-bottom: 15px;
+  }
+  
+  .right-side {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    flex: 1;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  .card-content {
+    position: relative;
+  } 
+  .visually-hidden {
+    position: absolute!important;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+    clip: rect(0 0 0 0);
+    word-wrap: normal!important;
+}
+.collection-hero__text-wrapper {
+    flex-basis: 100%;
+}
+
+.collection-hero__title {
+    margin: 2.5rem 0;
+}
+.collection-hero__title+.collection-hero__description {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.6rem;
+    line-height: calc(1 + .5 / var(--font-body-scale));
+}
+/* common-display.component.css */
+/* ... existing styles ... */
+
+.card {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .card-image,
+  .hover-overlay {
+    width: 100%;
+    height: 150px; /* Set the height as needed */
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Add a smooth transition effect */
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .card h3,
+.card p {
+  margin: 0;
+}
+
+  .hover-overlay {
+    opacity: 0;
+    z-index: 1;
+  }
+  
+  .card:hover .card-image {
+    opacity: 0; /* Hide the default image on hover */
+  }
+  
+  .card:hover .hover-overlay {
+    opacity: 1; /* Show the hover image on hover */
+  }
+  
+  .card:hover .card-details {
+    opacity: 1; /* Show the card details on hover */
+  }
+  .card-details{
+      display: flex;
+      position: relative;
+      top: 250px;
+      flex-direction: column;
+  }
+  
+  

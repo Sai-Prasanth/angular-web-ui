@@ -1,0 +1,43 @@
+/* contact.component.css */
+.contact-container {
+    max-width: 600px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the content horizontally */
+    padding: 20px;
+  }
+  
+  .address-section {
+    margin-top: 20px;
+  }
+  
+  .contact-form {
+    margin-top: 40px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+  }
+  
+  input,
+  textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
