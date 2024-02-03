@@ -1,10 +1,100 @@
-<!-- <div class="product-details">
-    <div class="left-side">
-      <img [src]="productDetails.image" alt="Product Image" />
+<html>
+  <head>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+  $(document).ready(function () {
+    let zoomLevel = 1;
+
+    $("#zoomIn").click(function () {
+      zoomLevel += 0.1;
+      $(".zoomable").css("transform", "scale(" + zoomLevel + ")");
+    });
+
+    $("#zoomOut").click(function () {
+      zoomLevel -= 0.1;
+      $(".zoomable").css("transform", "scale(" + zoomLevel + ")");
+    });
+  });
+</script>
+  </head>
+  <body>
+
+<!-- common-product-display.component.html -->
+<div class="product-container">
+  <div class="product-card">
+    <!-- Product Image inside the card -->
+    <div class="product-image">
+      <img [src]="product.imageUrl" alt="Product Image">
+      <div class="zoom-icon" id="zoomIn">+</div>
+      <div class="zoom-icon" id="zoomOut">-</div>
     </div>
-    <div class="right-side">
-      <h2>{{ productDetails.name }}</h2>
-      <p>{{ productDetails.description }}</p>
+
+    <!-- Additional Images below the main product image -->
+    <div *ngIf="product.additionalImages.length>0">
+    <div class="additional-images">
+      <div *ngFor="let additionalImage of product.additionalImages" (click)="this.product.imageUrl=additionalImage">
+        <div class="additional-image-card">
+          <img [src]="additionalImage" alt="Additional Image">
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </div>
+
+  <!-- Remaining content to the right of the main card -->
+  <div class="remaining-content">
+    <!-- Product Details -->
+    <div class="product-details">
+      <h2>{{ product.name }}</h2>
+      <p>{{ product.code }}</p>
+      <h2>Color</h2>
+      <div class="color" style="display: flex;">
+        <div *ngFor="let color of product.color" (click)="this.product.imageUrl=color">
+          <img [src]="color" alt="x" class="icon">
+        </div>
+      </div>
+      <h2>Quantity Available: {{ product.quantity }}</h2>
+      <p>{{ product.description }}</p>
+      <div class="price__sale">
+        <h2 class="visually-hidden visually-hidden--inline">Regular price : <span>
+            <s class="price-item price-item--regular">
+              ${{product.regularPrice}} USD
+            </s>
+          </span></h2>
+        <span class="visually-hidden visually-hidden--inline">Sale price : <span
+            class="price-item price-item--sale price-item--last">
+            ${{product.salePrice}} USD
+          </span></span>
+      </div>
+      <!-- Add more details as needed -->
     </div>
   </div>
-   -->
+</div>
+
+
+<!-- Similar Products Section -->
+<div class="similar-products">
+  <h3>Similar Products</h3>
+
+  <div class="similar-products-container">
+    <button class="arrow left" (click)="scrollSimilarProducts('left')">&lt;</button>
+    <div class="similar-products-list">
+      <div *ngFor="let similarProduct of visibleSimilarProducts" class="similar-product card"
+        (click)="onRecordClick(similarProduct)">
+        <!-- Display similar product details as cards -->
+        <img [src]="similarProduct.imageUrl" alt="Similar Product Image" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title">{{ similarProduct.name }}</h5>
+          <p class="card-text">Price: ${{ similarProduct.price }}</p>
+          <!-- Add more details as needed -->
+        </div>
+      </div>
+    </div>
+
+    <button class="arrow right" (click)="scrollSimilarProducts('right')">&gt;</button>
+  </div>
+</div>
+    
+</body>
+</html>

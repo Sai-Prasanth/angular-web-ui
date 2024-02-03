@@ -1,44 +1,62 @@
 /* navbar.component.css */
 
 nav {
-    background-color: #333; /* Set background color */
-    padding: 10px; /* Add some padding */
-    text-align: center; /* Center-align the content */
-  }
-  
-  h1 {
-    color: #fff; /* Set text color for the title */
-  }
-  
-  ul {
-    list-style: none; /* Remove default list styles */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-    display: flex; /* Use flexbox to arrange items in a row */
-    justify-content: center; /* Center-align the list items */
-  }
-  
-  li {
-    margin: 0 15px; /* Add some spacing between list items */
-  }
-  
-  a {
-    text-decoration: none; /* Remove underlines from links */
-    color: #fff; /* Set text color for links */
-    font-weight: bold; /* Add some font weight */
-  }
-  
-  a:hover {
-    color: #ffcc00; /* Change text color on hover */
-  }
-  .arrow-icon {
-    margin-left: 5px;
-    font-size: 12px; /* Adjust the size as needed */
-  }
-  .arrow-icon.open {
-    transform: rotate(90deg);
-  }
-  /* navbar.component.scss (or .css) */
+  background-color: #333;
+  /* Set background color */
+  padding: 10px;
+  /* Add some padding */
+  text-align: center;
+  /* Center-align the content */
+}
+
+h1 {
+  color: #fff;
+  /* Set text color for the title */
+}
+
+ul {
+  list-style: none;
+  /* Remove default list styles */
+  padding: 0;
+  /* Remove default padding */
+  margin: 0;
+  /* Remove default margin */
+  display: flex;
+  /* Use flexbox to arrange items in a row */
+  justify-content: center;
+  /* Center-align the list items */
+}
+
+li {
+  margin: 0 15px;
+  /* Add some spacing between list items */
+}
+
+a {
+  text-decoration: none;
+  /* Remove underlines from links */
+  color: #fff;
+  /* Set text color for links */
+  font-weight: bold;
+  /* Add some font weight */
+}
+
+a:hover {
+  color: #ffcc00;
+  /* Change text color on hover */
+}
+
+.arrow-icon {
+  margin-left: 5px;
+  font-size: 12px;
+  /* Adjust the size as needed */
+}
+
+.arrow-icon.open {
+  transform: rotate(90deg);
+}
+
+/* navbar.component.scss (or .css) */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -90,5 +108,6 @@ nav {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
+img{
   
+}
