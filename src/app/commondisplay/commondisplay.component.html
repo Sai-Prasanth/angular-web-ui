@@ -2,6 +2,8 @@
 <html>
 
 <head>
+  <!-- Include necessary meta tags, title, etc. -->
+  <!-- ... -->
   <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 </head>
@@ -31,18 +33,22 @@
 
     <!-- Right Side - 3 Equal Parts with 9 Records in Cards Style -->
     <div class="right-side">
-      <div *ngFor="let record of records" class="card" (click)="onRecordClick(record)">
+      <div *ngFor="let record of visibleRecords" class="card" (click)="onRecordClick(record)">
         <div class="card-content">
-            <div class="card-image" [style.backgroundImage]="'url(' + record.image + ')'"></div>
-            <div class="hover-overlay" [style.backgroundImage]="'url(' + record.hoverImage + ')'"></div>
-            <div class="card-details">
-              <h3>{{ record.name }}</h3>
-              <p>Price: {{ record.price }}</p>
-            </div>
+          <div class="card-image" [style.backgroundImage]="'url(' + record.image + ')'"></div>
+          <div class="hover-overlay" [style.backgroundImage]="'url(' + record.hoverImage + ')'"></div>
+          <div class="card-details">
+            <h3>{{ record.name }}</h3>
+            <p>Price: {{ record.price }}</p>
+          </div>
         </div>
       </div>
-      <!-- <app-commonproductdisplay [productDetails]="selectedProductDetails"></app-commonproductdisplay> -->
+    </div>
 
+    <div class="pagination-container">
+      <button class="prev-button" (click)="prevPage()" [disabled]="currentPage === 1">&lt;</button>
+      <span class="page-indicator">Page {{ currentPage }} of {{ totalPages }}</span>
+      <button class="next-button" (click)="nextPage()" [disabled]="currentPage === totalPages">&gt;</button>
     </div>
   </div>
 </body>

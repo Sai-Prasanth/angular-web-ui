@@ -28,11 +28,43 @@ export class CommondisplayComponent {
     
    { name: 'Item 5', id:'5',price: '$25', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360',hoverImage:'https://weaversdirect.in/cdn/shop/files/60KSILVER3.jpg?v=1689678586&width=600' },
    
+   { name: 'item 6', id:'1',price: '$20', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360',hoverImage:'https://weaversdirect.in/cdn/shop/files/IMG_20230718_124500.jpg?v=1689677991&width=600' },
+   { name: 'Item 7', id:'2',price: '$30', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360',hoverImage:'https://weaversdirect.in/cdn/shop/files/IMG_20230718_125219.jpg?v=1689678576&width=600' },
+   { name: 'Item 8', id:'3',price: '$25', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360',hoverImage:'https://weaversdirect.in/cdn/shop/files/60KSILVER3.jpg?v=1689678586&width=600' },
+   { name: 'Item 9', id:'4',price: '$25', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360',hoverImage:'https://weaversdirect.in/cdn/shop/files/60KSILVER3.jpg?v=1689678586&width=600' },
+   
+  { name: 'Item 10', id:'5',price: '$25', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360',hoverImage:'https://weaversdirect.in/cdn/shop/files/60KSILVER3.jpg?v=1689678586&width=600' },
+  
    // Add more records as needed
   ];
   selectedProductDetails: any;
-  //constructor(private productService: ProductService) {}
+  ngOnInit() {
+    this.calculateTotalPages();
+    this.updateVisibleRecords();
+  }
 
+  itemsPerPage = 9; // Number of items per page
+  currentPage = 1; // Current page
+  totalPages: number=0;
+  visibleRecords: any[] = [];
+  //constructor(private productService: ProductService) {}
+  calculateTotalPages() {
+    this.totalPages = Math.ceil(this.records.length / this.itemsPerPage);
+  }
+  prevPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+      this.updateVisibleRecords();
+    }
+  }
+
+  // Go to the next page
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updateVisibleRecords();
+    }
+  }
   onRecordClick(record: any): void {
     // Handle the click event for the record
     console.log('Clicked Record:', record);
@@ -46,5 +78,9 @@ export class CommondisplayComponent {
   //     }
   // });
   }
-  
+  updateVisibleRecords() {
+    const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.visibleRecords = this.records.slice(startIndex, endIndex);
+  }
 }

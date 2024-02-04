@@ -123,3 +123,87 @@ margin: 0;
     flex-direction: column;
 }
 
+
+/* common-display.component.css */
+/* ... existing styles ... */
+
+.right-side {
+  flex: 2;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 487px; /* New height */
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.card-content {
+  position: relative;
+}
+
+.hover-overlay {
+  opacity: 0;
+  z-index: 1;
+}
+
+.card:hover .card-image {
+  opacity: 0;
+}
+
+.card:hover .hover-overlay {
+  opacity: 1;
+}
+
+.card:hover .card-details {
+  opacity: 1;
+}
+
+.card-details {
+  display: flex;
+  position: relative;
+  top: 384px;
+  flex-direction: column;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.prev-button,
+.next-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.prev-button[disabled],
+.next-button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.page-indicator {
+  margin: 0 10px;
+}
+
+
