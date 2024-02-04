@@ -31,18 +31,15 @@
 
     <!-- Right Side - 3 Equal Parts with 9 Records in Cards Style -->
     <div class="right-side">
-      <div *ngFor="let record of records" class="card container" (click)="onRecordClick(record)">
-        <div class="card-content row">
-          <div class="col-sm">
+      <div *ngFor="let record of records" class="card" (click)="onRecordClick(record)">
+        <div class="card-content">
             <div class="card-image" [style.backgroundImage]="'url(' + record.image + ')'"></div>
             <div class="hover-overlay" [style.backgroundImage]="'url(' + record.hoverImage + ')'"></div>
             <div class="card-details">
               <h3>{{ record.name }}</h3>
               <p>Price: {{ record.price }}</p>
             </div>
-          </div>
         </div>
-
       </div>
       <!-- <app-commonproductdisplay [productDetails]="selectedProductDetails"></app-commonproductdisplay> -->
 
