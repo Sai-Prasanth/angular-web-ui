@@ -13,22 +13,67 @@
   <div class="common-display-container">
     <!-- Dynamic Heading -->
     <div class="collection-hero__text-wrapper">
-      <h1 class="collection-hero__title"><span class="visually-hidden">Collection: </span>{{ dynamicHeading }}</h1>
+      <h1 class="collection-hero__title"><span class="visually-hidden">Collection: </span>{{ finalRes.dynamicHeading }}</h1>
       <div class="collection-hero__description rte">
-        <p>{{ dynamicDescription1 }}</p>
+        <p>{{ finalRes.dynamicDescription1 }}</p>
 
         <!-- Dynamic Description -->
-        <p>{{ dynamicDescription }}</p>
+        <p>{{ finalRes.dynamicDescription }}</p>
       </div>
     </div>
     <!-- Left Side - 5 Values with Dynamic Dropdowns -->
     <div class="left-side">
-      <div *ngFor="let value of dynamicValues">
+      <!-- <div *ngFor="let value of dynamicValues">
         <p>{{ value.label }}:</p>
         <select [(ngModel)]="value.selectedOption">
           <option *ngFor="let option of value.options" [value]="option">{{ option }}</option>
         </select>
-      </div>
+      </div> -->
+      <form (submit)="applyFilters(formData)" #contactForm="ngForm">
+        <div class="form-group">
+          <label for="priceFrom">Price range:</label>
+          <input type="text" id="priceFrom" name="priceFrom" placeholder="From" [(ngModel)]="formData.priceFrom">
+          <label for="priceTo">-</label>
+          <input type="text" id="priceTo" name="priceTo" placeholder="To" [(ngModel)]="formData.priceTo">
+        </div>
+      
+        <div class="form-group">
+          <label for="color">Color:</label>
+          <select id="color" name="color" [(ngModel)]="formData.color">
+            <option value="">Select Color</option>
+            <option value="Red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <!-- Add more color options as needed -->
+          </select>
+        </div>
+      
+        <div class="form-group">
+          <label for="color">Material:</label>
+          <select id="material" name="material" [(ngModel)]="formData.material">
+            <option value="">Select Material</option>
+            <option value="cotton">Cotton</option>
+            <option value="silk">Silk</option>
+            <option value="pattu">Pattu</option>
+            <!-- Add more color options as needed -->
+          </select>
+        </div>
+      
+        <div class="form-group">
+          <label for="color">Color:</label>
+          <select id="color" name="color" [(ngModel)]="formData.color">
+            <option value="">Select Color</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+            <!-- Add more color options as needed -->
+          </select>
+        </div>
+      
+        <button type="submit">Apply</button>
+      </form>
+      <button (click)="clearFilter()">Clear</button>
+
     </div>
 
     <!-- Right Side - 3 Equal Parts with 9 Records in Cards Style -->
@@ -43,12 +88,16 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <div class="pagination-container">
-      <button class="prev-button" (click)="prevPage()" [disabled]="currentPage === 1">&lt;</button>
-      <span class="page-indicator">Page {{ currentPage }} of {{ totalPages }}</span>
-      <button class="next-button" (click)="nextPage()" [disabled]="currentPage === totalPages">&gt;</button>
+      <div class="pagination-container" *ngIf="finalRes.records.length>9 else space">
+        <button class="prev-button" (click)="prevPage()" >&lt;</button>
+        <span class="page-indicator">Page {{ currentPage }} of {{ totalPages }}</span>
+        <button class="next-button" (click)="nextPage()" >&gt;</button>
+      </div>
+      <ng-template #space> 
+        <br>
+        <br><br><br>
+    </ng-template>
+    
     </div>
   </div>
 </body>
