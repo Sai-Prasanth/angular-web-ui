@@ -207,3 +207,61 @@ margin: 0;
 }
 
 
+/* common-display.component.css */
+
+.left-side {
+  flex: 1;
+  max-width: 300px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+}
+
+.left-side form {
+  margin-bottom: 20px;
+}
+
+.left-side .form-group {
+  margin-bottom: 15px;
+}
+
+.left-side label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.left-side input[type="text"],
+.left-side select {
+  width: calc(100% - 10px);
+  padding: 8px;
+  border: 1px solid #ccc; 
+  border-radius: 5px;
+}
+
+.left-side button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.left-side button:hover {
+  background-color: #0056b3;
+}
+.clear-button {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #007bff; /* Change color as needed */
+}
+
+.clear-button:hover {
+  text-decoration: underline;
+}

@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ProductService } from '../product.service';
+
 
 @Component({
   selector: 'app-commonproductdisplay',
@@ -6,13 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./commonproductdisplay.component.scss']
 })
 export class CommonproductdisplayComponent implements OnInit {
-  @Input() products: any; // Input property to pass the main product data
+  @Input() product1: any; // Input property to pass the main product data
   @Input() similarProductss: any ; // Input property to pass an array of similar products
-  constructor() { }
+  constructor(private productService:ProductService) { }
+  productId: string='';
+
   product = {
     name: 'Product 1',
     description: 'Description of Product 1',
-    imageUrl: 'https://weaversdirect.in/cdn/shop/files/CS_002__silk_set294_shrestha_back__2023-7-18-12-45-14__2730X4096_cab5e750-1059-469c-b03c-38ba050f5394.jpg?v=1689664962',
+    image: 'https://weaversdirect.in/cdn/shop/files/CS_002__silk_set294_shrestha_back__2023-7-18-12-45-14__2730X4096_cab5e750-1059-469c-b03c-38ba050f5394.jpg?v=1689664962',
     salePrice: 19.99,
     regularPrice:100,
     code:'12345678',
@@ -69,7 +73,20 @@ export class CommonproductdisplayComponent implements OnInit {
   ];
   visibleSimilarProducts: any[] = [];
   currentIndex = 0;
+
   ngOnInit() {
+      const params=this.productService.getRecord();
+
+      this.product.name = params['name'];
+      this.product.description = params['description'];
+      this.product.image = params['image'];
+      this.product.salePrice = params['salePrice'];
+      this.product.regularPrice = params['regularPrice'];
+      this.product.code = params['code'];
+      this.product.color = params['color'];
+      this.product.quantity = params['quantity'];
+      this.product.additionalImages = params['additionalImages'];
+
     this.updateVisibleSimilarProducts();
   }
 

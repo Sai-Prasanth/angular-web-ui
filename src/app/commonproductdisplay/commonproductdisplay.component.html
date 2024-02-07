@@ -24,7 +24,7 @@
   <div class="product-card">
     <!-- Product Image inside the card -->
     <div class="product-image">
-      <img [src]="product.imageUrl" alt="Product Image">
+      <img [src]="product.image" alt="Product Image">
       <div class="zoom-icon" id="zoomIn">+</div>
       <div class="zoom-icon" id="zoomOut">-</div>
     </div>
@@ -32,7 +32,7 @@
     <!-- Additional Images below the main product image -->
     <div *ngIf="product.additionalImages.length>0">
     <div class="additional-images">
-      <div *ngFor="let additionalImage of product.additionalImages" (click)="this.product.imageUrl=additionalImage">
+      <div *ngFor="let additionalImage of product.additionalImages" (click)="this.product.image=additionalImage">
         <div class="additional-image-card">
           <img [src]="additionalImage" alt="Additional Image">
         </div>
@@ -50,7 +50,7 @@
       <p>{{ product.code }}</p>
       <h2>Color</h2>
       <div class="color" style="display: flex;">
-        <div *ngFor="let color of product.color" (click)="this.product.imageUrl=color">
+        <div *ngFor="let color of product.color" (click)="this.product.image=color">
           <img [src]="color" alt="x" class="icon">
         </div>
       </div>
