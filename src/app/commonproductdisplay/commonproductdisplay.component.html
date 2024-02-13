@@ -57,15 +57,19 @@
       <h2>Quantity Available: {{ product.quantity }}</h2>
       <p>{{ product.description }}</p>
       <div class="price__sale">
-        <h2 class="visually-hidden visually-hidden--inline">Regular price : <span>
+        <h2 class=" ">Regular price :
+           <span>
             <s class="price-item price-item--regular">
               ${{product.regularPrice}} USD
             </s>
-          </span></h2>
-        <span class="visually-hidden visually-hidden--inline">Sale price : <span
+          </span>
+        </h2>
+        <span class="">Sale price :
+           <span
             class="price-item price-item--sale price-item--last">
             ${{product.salePrice}} USD
-          </span></span>
+          </span>
+        </span>
       </div>
       <!-- Add more details as needed -->
     </div>

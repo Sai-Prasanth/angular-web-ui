@@ -1,0 +1,68 @@
+<html>
+<body>
+
+    <form class="admin-form" (ngSubmit)="submitFormData(formData)" #adminForm="ngForm">
+        <label for="productName">Product Name:</label>
+        <input type="text" id="productName" name="productName" [(ngModel)]="formData.productName" required><br>
+
+        <label for="productCode">Product Code:</label>
+        <input type="text" id="productCode" name="productCode" [(ngModel)]="formData.productCode" required><br>
+
+        <label for="regularPrice">Regular Price:</label>
+        <input type="number" id="regularPrice" name="regularPrice" [(ngModel)]="formData.regularPrice" required><br>
+
+        <label for="discountPrice">Discount Price:</label>
+        <input type="number" id="discountPrice" name="discountPrice" [(ngModel)]="formData.discountPrice" required><br>
+
+        <label for="productImages">Product Images (Max 5, Max 4MB each):</label><br>
+        <input type="file" id="productImages" name="productImages" accept="image/*" multiple
+            (change)="handleFileInput($event, 'productImages')" required><br>
+        <div *ngIf="formData.productImages.length > 0">
+            <label>Uploaded Images:</label><br>
+            <div class="additional-images">
+                <div *ngFor="let image of formData.productImages; let i = index">
+                    <div class="additional-image-card">
+                        <img [src]="image" alt="Uploaded Image" class="">
+                    </div>
+                    <button type="button" (click)="removeImage(i, 'productImages')">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <label for="colors">Colors (Optional):</label><br>
+        <input type="file" id="colors" name="colors" accept="image/*" multiple
+            (change)="handleFileInput($event, 'colors')"><br>
+        <div *ngIf="formData.colors.length > 0">
+            <label>Uploaded Images:</label><br>
+            <div class="additional-images">
+                <div *ngFor="let image of formData.colors; let i = index">
+                    <div class="additional-image-card">
+                        <img [src]="image" alt="Uploaded Image" class="">
+                    </div>
+                    <button type="button" (click)="removeImage(i, 'colors')">Remove</button>
+                </div>
+            </div>
+        </div>
+
+        <label for="quantityAvailable">Quantity Available:</label>
+        <input type="number" id="quantityAvailable" name="quantityAvailable" [(ngModel)]="formData.quantityAvailable"
+            required><br>
+
+        <label for="productCare">Product Care:</label><br>
+        <textarea id="productCare" name="productCare" rows="4" [(ngModel)]="formData.productCare"
+            required></textarea><br>
+
+        <label for="shortDescription">Short Description:</label><br>
+        <textarea id="shortDescription" name="shortDescription" rows="4" [(ngModel)]="formData.shortDescription"
+            required></textarea><br>
+
+        <label for="mainDescription">Main Description:</label><br>
+        <textarea id="mainDescription" name="mainDescription" rows="6" [(ngModel)]="formData.mainDescription"
+            required></textarea><br>
+
+        <button type="submit">Submit</button>
+    </form>
+    <app-footer *ngIf="showFooter"></app-footer>
+
+</body>
+</html>

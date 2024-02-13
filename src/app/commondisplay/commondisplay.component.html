@@ -23,12 +23,6 @@
     </div>
     <!-- Left Side - 5 Values with Dynamic Dropdowns -->
     <div class="left-side">
-      <!-- <div *ngFor="let value of dynamicValues">
-        <p>{{ value.label }}:</p>
-        <select [(ngModel)]="value.selectedOption">
-          <option *ngFor="let option of value.options" [value]="option">{{ option }}</option>
-        </select>
-      </div> -->
       <form (submit)="applyFilters(formData)" #contactForm="ngForm">
         <div class="form-group">
           <label for="priceFrom">Price range: </label>

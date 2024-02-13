@@ -15,7 +15,14 @@ import { FormsModule } from '@angular/forms';
 import { CommondisplayComponent } from './commondisplay/commondisplay.component';
 import { CommonproductdisplayComponent } from './commonproductdisplay/commonproductdisplay.component';
 import { ProductService } from './product.service';
-
+import { AdminpanelComponent } from './adminpanel/adminpanel.component';
+import { LoginComponent } from './login/login.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { CreateaccountComponent } from './createaccount/createaccount.component';
+import { AuthserviceService } from './authservice.service';
+import { UserprofileComponent } from './userprofile/userprofile.component';
+import { LogoutComponent } from './logout/logout.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,14 +36,21 @@ import { ProductService } from './product.service';
     FaqComponent,
     FooterComponent,
     CommondisplayComponent,
-    CommonproductdisplayComponent
+    CommonproductdisplayComponent,
+    AdminpanelComponent,
+    LoginComponent,
+    ForgotpasswordComponent,
+    CreateaccountComponent,
+    UserprofileComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule 
   ],
-  providers: [ProductService],
+  providers: [ProductService,AuthserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

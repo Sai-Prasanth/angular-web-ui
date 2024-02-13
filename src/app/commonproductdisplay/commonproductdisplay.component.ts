@@ -76,7 +76,7 @@ export class CommonproductdisplayComponent implements OnInit {
 
   ngOnInit() {
       const params=this.productService.getRecord();
-
+console.log(params)
       this.product.name = params['name'];
       this.product.description = params['description'];
       this.product.image = params['image'];
