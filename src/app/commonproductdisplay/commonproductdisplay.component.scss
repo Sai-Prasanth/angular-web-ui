@@ -10,6 +10,7 @@
   }
   .product-container {
     display: flex;
+    margin-left: 15%;
   }
   
   .product-card {
@@ -48,6 +49,15 @@
   .remaining-content {
     flex: 1;
   }
+  .remaining-content {
+    flex: 1;
+    /* Set a fixed height for the container */
+    height: 400px; /* Adjust height as needed */
+  
+    /* Enable vertical scrolling */
+    overflow-y: auto;
+  }
+  
   
   
   .icon {
@@ -61,6 +71,8 @@
 /* common-product-display.component.css */
 .similar-products {
     margin-top: 20px;
+    margin-left: 20%;
+
   }
   
   .similar-products-container {

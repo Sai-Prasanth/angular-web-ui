@@ -14,7 +14,7 @@ export class CommondisplayComponent {
   finalRes={
   dynamicHeading:  'Pattu Sarees',
   dynamicDescription1:"Discover the Beauty of Cotton Sarees",
-  dynamicDescription: "The beauty of handloom cotton sarees from Andhra Pradesh, showcasing the traditional allure of Mangalagiri weaves.",
+  dynamicDescription: "Our latest saree collection includes Kanchi Pattu, Ikkat Silk sarees, Cotton Silk sarees, and Party Wear sarees. Elevate your style with elegance and comfort. Make a statement at parties with our seamless blend of style and grace. Dive into the essence of tradition with our handloom sarees.",
   dynamicValues: [
     { label: 'Price', options: ['Low', 'High'], selectedOption: 'Low' },
     { label: 'Color', options: ['Red', 'Blue', 'Green'], selectedOption: 'Red' },
@@ -24,8 +24,8 @@ export class CommondisplayComponent {
   ],
   records :[
     {
-      description: 'Description of Product 1',  
-      name: 'Purple & grey & handwoven ikkat silk saree', id: '1', price: '20', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360', hoverImage: 'https://weaversdirect.in/cdn/shop/files/IMG_20230718_124500.jpg?v=1689677991&width=600', material: 'cotton', salePrice: 19.99,
+      description: 'Mangalagiri handloom sarees are crafted from pure cotton with intricate Zari embellishments on the border and a plain body. Ideal for festive occasions, these sarees effortlessly combine tradition and sophistication. They are highly valued by devotees for both ceremonial and devotional wear, as Mangalagiri is home to the revered Lord Narasimha Temple.',  
+      name: 'MANGLAGIRI HANDLOOM COTTON PATTU SAREE', id: '1', price: '20', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360', hoverImage: 'https://weaversdirect.in/cdn/shop/files/IMG_20230718_124500.jpg?v=1689677991&width=600', material: 'cotton', salePrice: 19.99,
       regularPrice: 100,
       code: '12345678',
       color: ['https://weaversdirect.in/cdn/shop/files/SILKIKKATHSAREE__silk_set170_tarannum_front2__2023-7-17-14-26-59__2730X4096_cded5307-8e01-4f99-b96f-f400c19ff44a.jpg?v=1689584721&width=493'
@@ -36,9 +36,10 @@ export class CommondisplayComponent {
         , 'https://weaversdirect.in/cdn/shop/files/IMG_20230717_114830.jpg?v=1689664962&width=493',
         'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493', 'https://weaversdirect.in/cdn/shop/files/SILKIKKATHSAREE__silk_set170_tarannum_front2__2023-7-17-14-26-59__2730X4096_cded5307-8e01-4f99-b96f-f400c19ff44a.jpg?v=1689584721&width=493'
         , 'https://weaversdirect.in/cdn/shop/files/IMG_20230717_114830.jpg?v=1689664962&width=493',
-        'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493']
+        'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493'],sareeSpecifications :['Material - Cotton','Length 5.5cm'],sareeCare : ["Don't Wash","Don't wear"],
+        occassion:['Daily-Wear','Official']
     },
-    { name: 'Item 2', id:'2',price: '30', image: 'https://weaversdirect.in/cdn/shop/files/IMG_20230718_125219.jpg?v=1689678576&width=600',hoverImage:'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360' ,color1:'Red',material:'pattu',description: 'Description of Product 1',salePrice: 19.99,
+    { name: 'L_X 2024 MANGALAGIRI COTTON SILK CHIKANKARI SAREE WITH THREAD WORK', id:'2',price: '30', image: 'https://weaversdirect.in/cdn/shop/files/IMG_20230718_125219.jpg?v=1689678576&width=600',hoverImage:'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360' ,color1:'Red',material:'pattu',description: 'Description of Product 1',salePrice: 19.99,
     regularPrice: 100,
     code: '12345678',
     color: ['https://weaversdirect.in/cdn/shop/files/SILKIKKATHSAREE__silk_set170_tarannum_front2__2023-7-17-14-26-59__2730X4096_cded5307-8e01-4f99-b96f-f400c19ff44a.jpg?v=1689584721&width=493'
@@ -50,7 +51,7 @@ export class CommondisplayComponent {
       'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493', 'https://weaversdirect.in/cdn/shop/files/SILKIKKATHSAREE__silk_set170_tarannum_front2__2023-7-17-14-26-59__2730X4096_cded5307-8e01-4f99-b96f-f400c19ff44a.jpg?v=1689584721&width=493'
       , 'https://weaversdirect.in/cdn/shop/files/IMG_20230717_114830.jpg?v=1689664962&width=493',
       'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493']},
-    { name: 'Item 3', id:'3',price: '25', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360',hoverImage:'https://weaversdirect.in/cdn/shop/files/60KSILVER3.jpg?v=1689678586&width=600' ,color:'Red',material:'silk'},
+    { name: 'L_X 2024 MANGALAGIRI COTTON SILK CHIKANKARI SAREE WITH THREAD WORK with good work of cutton', id:'3',price: '25', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360',hoverImage:'https://weaversdirect.in/cdn/shop/files/60KSILVER3.jpg?v=1689678586&width=600' ,color:'Red',material:'silk'},
     { name: 'Item 4', id:'4',price: '25', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360',hoverImage:'https://weaversdirect.in/cdn/shop/files/60KSILVER3.jpg?v=1689678586&width=600' ,color:'Red',material:'cotton'},
     
    { name: 'Item 5', id:'5',price: '25', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360',hoverImage:'https://weaversdirect.in/cdn/shop/files/60KSILVER3.jpg?v=1689678586&width=600' ,color:'Blue',material:'cotton'},
@@ -61,6 +62,7 @@ export class CommondisplayComponent {
    { name: 'Item 9', id:'4',price: '25', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360',hoverImage:'https://weaversdirect.in/cdn/shop/files/60KSILVER3.jpg?v=1689678586&width=600' ,color:'Blue',material:'cotton'},
    
   { name: 'Item 10', id:'5',price: '25', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360',hoverImage:'https://weaversdirect.in/cdn/shop/files/60KSILVER3.jpg?v=1689678586&width=600' ,color:'Blue',material:'pattu'},
+  { name: 'Item 3', id:'3',price: '25', image: 'https://weaversdirect.in/cdn/shop/files/Newsaree__cotton_set303_bnrs_front2__2023-7-10-9-39-45__3000X4501_f2e0d9aa-3be0-4e37-8022-8f87b6c8c8c8.png?v=1688962805&width=360',hoverImage:'https://weaversdirect.in/cdn/shop/files/60KSILVER3.jpg?v=1689678586&width=600' ,color:'Red',material:'silk',productCode:'123456',isAvailable:true,occassion:['Party Wear','Casual'],category:'Pattu'}
   
    // Add more records as needed
   ]
@@ -91,7 +93,8 @@ export class CommondisplayComponent {
     priceTo: '',
     color: '',
     material: '',
-    comment: ''
+    comment: '',
+    occassion:''
   };
   applyFilters(formValues:any) {
     console.log(formValues ,Object.values(formValues).length)
@@ -144,7 +147,8 @@ export class CommondisplayComponent {
       priceTo: '',
       color: '',
       material: '',
-      comment: ''
+      comment: '',
+      occassion:''
     };
     this.updateVisibleRecords();
   }

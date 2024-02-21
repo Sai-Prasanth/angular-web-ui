@@ -18,14 +18,14 @@
         <p>{{ finalRes.dynamicDescription1 }}</p>
 
         <!-- Dynamic Description -->
-        <p>{{ finalRes.dynamicDescription }}</p>
+        <p style="font-size: 18px;">{{ finalRes.dynamicDescription }}</p>
       </div>
     </div>
     <!-- Left Side - 5 Values with Dynamic Dropdowns -->
     <div class="left-side">
       <form (submit)="applyFilters(formData)" #contactForm="ngForm" >
         <div class="form-group">
-          <label for="priceFrom">Price range: <i (click)="clearFilter()" class="fa-solid fa-circle-xmark"></i> </label>
+          <label for="priceFrom">Price range: <i (click)="clearFilter()" title="Clear Filter" class="fa-solid fa-circle-xmark" style="margin-left: 135px;cursor: pointer;"></i> </label>
           <input type="text" id="priceFrom" name="priceFrom" placeholder="From" [(ngModel)]="formData.priceFrom">
           <label for="priceTo">-</label>
           <input type="text" id="priceTo" name="priceTo" placeholder="To" [(ngModel)]="formData.priceTo">
@@ -54,12 +54,12 @@
         </div>
       
         <div class="form-group">
-          <label for="color">Color:</label>
-          <select id="color" name="color" [(ngModel)]="formData.color">
-            <option value="">Select Color</option>
-            <option value="red">Red</option>
-            <option value="blue">Blue</option>
-            <option value="green">Green</option>
+          <label for="occassion">Occassion:</label>
+          <select id="occassion" name="occassion" [(ngModel)]="formData.occassion">
+            <option value="">Select Occassion</option>
+            <option value="red">Casual</option>
+            <option value="blue">Festival</option>
+            <option value="green">Daily Wear</option>
             <!-- Add more color options as needed -->
           </select>
         </div>
@@ -76,23 +76,23 @@
           <div class="card-image" [style.backgroundImage]="'url(' + record.image + ')'"></div>
           <div class="hover-overlay" [style.backgroundImage]="'url(' + record.hoverImage + ')'"></div>
           <div class="card-details">
-            <h3>{{ record.name }}</h3>
-            <p>Price: {{ record.price }}</p>
+            <h3 class="recordName">{{ record.name }}</h3>
+            <p>Price: ${{ record.price }}</p>
           </div>
         </div>
       </div>
-      <div class="pagination-container" *ngIf="finalRes.records.length>9 else space">
-        <button class="prev-button" (click)="prevPage()" >&lt;</button>
-        <span class="page-indicator">Page {{ currentPage }} of {{ totalPages }}</span>
-        <button class="next-button" (click)="nextPage()" >&gt;</button>
-      </div>
-      <ng-template #space> 
-        <br>
-        <br><br><br>
-    </ng-template>
-    
     </div>
   </div>
+  
+  <div class="pagination-container" *ngIf="finalRes.records.length>9 else space">
+    <button class="prev-button" (click)="prevPage()" >&lt;</button>
+    <span class="page-indicator">Page {{ currentPage }} of {{ totalPages }}</span>
+    <button class="next-button" (click)="nextPage()" >&gt;</button>
+  </div>
+  <ng-template #space> 
+    <br>
+    <br><br><br>
+</ng-template>
 </body>
 
 </html>

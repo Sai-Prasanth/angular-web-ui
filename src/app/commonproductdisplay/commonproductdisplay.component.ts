@@ -15,7 +15,7 @@ export class CommonproductdisplayComponent implements OnInit {
 
   product = {
     name: 'Product 1',
-    description: 'Description of Product 1',
+    description: 'Mangalagiri handloom sarees are crafted from pure cotton with intricate Zari embellishments on the border and a plain body. Ideal for festive occasions, these sarees effortlessly combine tradition and sophistication. They are highly valued by devotees for both ceremonial and devotional wear, as Mangalagiri is home to the revered Lord Narasimha Temple.',
     image: 'https://weaversdirect.in/cdn/shop/files/CS_002__silk_set294_shrestha_back__2023-7-18-12-45-14__2730X4096_cab5e750-1059-469c-b03c-38ba050f5394.jpg?v=1689664962',
     salePrice: 19.99,
     regularPrice:100,
@@ -28,15 +28,26 @@ export class CommonproductdisplayComponent implements OnInit {
     ,'https://weaversdirect.in/cdn/shop/files/IMG_20230717_114830.jpg?v=1689664962&width=493',
     'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493','https://weaversdirect.in/cdn/shop/files/SILKIKKATHSAREE__silk_set170_tarannum_front2__2023-7-17-14-26-59__2730X4096_cded5307-8e01-4f99-b96f-f400c19ff44a.jpg?v=1689584721&width=493'
     ,'https://weaversdirect.in/cdn/shop/files/IMG_20230717_114830.jpg?v=1689664962&width=493',
-    'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493']
-    // Add more details as needed
+    'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493'] ,
+    sareeSpecifications :['Material - Cotton','Length 5.5cm'],
+    sareeCare : ["Don't Wash","Don't wear"],
+    occassion:['Daily-Wear','Official']
+    
   };
  similarProducts = [
     {
       name: 'Similar Product 1',
       imageUrl: 'https://cdn.shopify.com/s/files/1/0681/8506/3740/files/SEMISILK4.jpg?v=1686978754',
       price: 24.99,
-      // Add more details as needed
+      productCode :'1234'
+      // first 4/5 based on similar name / category / any combination
+    },
+    {
+      name: 'Similar Product 1',
+      imageUrl: 'https://cdn.shopify.com/s/files/1/0681/8506/3740/files/SEMISILK4.jpg?v=1686978754',
+      price: 24.99,
+      productCode :'1234'
+      // first 4/5 based on similar name / category / any combination
     },
     {
       name: 'Similar Product 1',
@@ -55,20 +66,7 @@ export class CommonproductdisplayComponent implements OnInit {
       imageUrl: 'https://cdn.shopify.com/s/files/1/0681/8506/3740/files/SILKIKKATHSAREE__silk_set190_shrestha_sitting__2023-7-17-14-27-56__2730X4096_1.jpg?v=1689584721',
       price: 24.99,
       // Add more details as needed
-    },  
-    {
-      name: 'Similar Product 1',
-      imageUrl: 'https://weaversdirect.in/cdn/shop/files/Newsaree__ge_set303_bnrs_back1__2023-7-17-16-53-21__2730X4096_2.jpg?v=1689594251',
-      price: 24.99,
-      // Add more details as needed
-    },  
-    {
-      name: 'Similar Product 1',
-      imageUrl: 'https://weaversdirect.in/cdn/shop/files/CS_002__silk_set294_shrestha_back__2023-7-18-12-45-14__2730X4096_cab5e750-1059-469c-b03c-38ba050f5394.jpg?v=1689664962',
-      price: 24.99,
-      // Add more details as needed
-    },  
-
+    }
     // Add more similar products
   ];
   visibleSimilarProducts: any[] = [];
@@ -93,28 +91,30 @@ console.log(params)
   transformValue = 'translateX(0)';
 
   updateVisibleSimilarProducts() {
-    this.visibleSimilarProducts = this.similarProducts.slice(this.currentIndex, this.currentIndex + 4);
-    this.transformValue = `translateX(-${this.currentIndex * (100 / 4)}%)`; // Adjust based on the number of visible items
+    this.visibleSimilarProducts = this.similarProducts.slice(this.currentIndex, this.currentIndex + this.similarProducts.length);
+    this.transformValue = `translateX(-${this.currentIndex * (100 / this.similarProducts.length)}%)`; // Adjust based on the number of visible items
   }
 
-  scrollSimilarProducts(direction: 'left' | 'right') {
-    if (direction === 'right') {
-      // Move one image left
-      this.currentIndex++;
-      if (this.currentIndex + 4 > this.similarProducts.length) {
-        this.currentIndex = 0;
-      }
-    } else {
-      // Move one image right
-      this.currentIndex--;
-      if (this.currentIndex < 0) {
-        this.currentIndex = this.similarProducts.length - 4;
-      }
-    }
+  // scrollSimilarProducts(direction: 'left' | 'right') {
+  //   if (direction === 'right') {
+  //     // Move one image left
+  //     this.currentIndex++;
+  //     if (this.currentIndex + 4 > this.similarProducts.length) {
+  //       this.currentIndex = 0;
+  //     }
+  //   } else {
+  //     // Move one image right
+  //     this.currentIndex--;
+  //     if (this.currentIndex < 0) {
+  //       this.currentIndex = this.similarProducts.length - 4;
+  //     }
+  //   }
 
-    this.updateVisibleSimilarProducts();
-  }
+  //   this.updateVisibleSimilarProducts();
+  // }
   onRecordClick(record: any): void {
     // Handle the click event for the record
     console.log('Clicked Record:', record);}
+
+    
 }

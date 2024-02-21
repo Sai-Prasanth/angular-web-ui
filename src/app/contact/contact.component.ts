@@ -16,10 +16,10 @@ export class ContactComponent {
     comment: '',
   };
 
-  onSubmit(formData: any): void {
+  onSubmit(): void {
     console.log("cc",this.formData)
     // Call the email service to send the email
-    this.emailService.sendEmail(formData);
+    this.emailService.sendEmail(this.formData);
     // You can add additional logic here if needed.
   }
 }

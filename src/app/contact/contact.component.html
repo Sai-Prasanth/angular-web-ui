@@ -10,25 +10,25 @@
   <div class="contact-form">
     <h3>Contact Form</h3>
 
-    <form (submit)="onSubmit(contactForm.value)" #contactForm="ngForm">
+    <form (submit)="onSubmit()" #contactForm="ngForm">
       <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name">
+        <input type="text" id="name" name="name" placeholder="Enter your name" [(ngModel)]="formData.name">
       </div>
 
       <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email">
+        <input type="email" id="email" name="email" placeholder="Enter your email" [(ngModel)]="formData.email">
       </div>
 
       <div class="form-group">
         <label for="number">Phone Number:</label>
-        <input type="tel" id="number" name="number" placeholder="Enter your phone number">
+        <input type="tel" id="number" name="number" placeholder="Enter your phone number" [(ngModel)]="formData.number">
       </div>
 
       <div class="form-group">
         <label for="comment">Comments:</label>
-        <textarea id="comment" name="comment" placeholder="Enter your comments"></textarea>
+        <textarea id="comment" name="comment" placeholder="Enter your comments" [(ngModel)]="formData.comment"></textarea>
       </div>
 
       <button type="submit">Send</button>

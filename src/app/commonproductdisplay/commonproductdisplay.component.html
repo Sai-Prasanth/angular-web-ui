@@ -2,19 +2,7 @@
   <head>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 <script>
-  $(document).ready(function () {
-    let zoomLevel = 1;
 
-    $("#zoomIn").click(function () {
-      zoomLevel += 0.1;
-      $(".zoomable").css("transform", "scale(" + zoomLevel + ")");
-    });
-
-    $("#zoomOut").click(function () {
-      zoomLevel -= 0.1;
-      $(".zoomable").css("transform", "scale(" + zoomLevel + ")");
-    });
-  });
 </script>
   </head>
   <body>
@@ -25,8 +13,6 @@
     <!-- Product Image inside the card -->
     <div class="product-image">
       <img [src]="product.image" alt="Product Image">
-      <div class="zoom-icon" id="zoomIn">+</div>
-      <div class="zoom-icon" id="zoomOut">-</div>
     </div>
 
     <!-- Additional Images below the main product image -->
@@ -46,31 +32,51 @@
   <div class="remaining-content">
     <!-- Product Details -->
     <div class="product-details">
-      <h2>{{ product.name }}</h2>
-      <p>{{ product.code }}</p>
-      <h2>Color</h2>
-      <div class="color" style="display: flex;">
-        <div *ngFor="let color of product.color" (click)="this.product.image=color">
-          <img [src]="color" alt="x" class="icon">
-        </div>
-      </div>
-      <h2>Quantity Available: {{ product.quantity }}</h2>
-      <p>{{ product.description }}</p>
+      <h1 style="font-size: 15px;font-weight: bold">{{ product.name }}</h1>
+      <p style="font-size: 15px;">{{ product.code }}</p>
+
       <div class="price__sale">
-        <h2 class=" ">Regular price :
+        <h2 class=" " style="font-size: 15px;">Regular price :
            <span>
             <s class="price-item price-item--regular">
               ${{product.regularPrice}} USD
             </s>
           </span>
         </h2>
-        <span class="">Sale price :
+        <span class="" style="font-size: 15px;">Sale price :
            <span
             class="price-item price-item--sale price-item--last">
             ${{product.salePrice}} USD
           </span>
         </span>
       </div>
+      <h2 style="font-size: 15px;font-weight: bold">Colors</h2>
+      <div class="color" style="display: flex;">
+        <div *ngFor="let color of product.color" (click)="this.product.image=color">
+          <img [src]="color" alt="x" class="icon">
+        </div>
+      </div>
+      <h2 style="font-size: 15px;font-weight: bold">Quantity Available: {{ product.quantity }}</h2>
+      <div class="descriptions">
+        <h2 style="font-size: 20px;">Product Description:</h2>
+        <p style="max-width: 410px;">{{ product.description }}</p>
+        <h3 style="font-size: 20px;">Occassion:</h3>
+        <ul  class="occassion">
+          <li *ngFor="let occassion of product.occassion">{{occassion}}</li>
+        </ul>
+
+        <h3 style="font-size: 20px;">Saree Specifications</h3>
+        <ul  class="specifications">
+          <li *ngFor="let sareeSpecification of product.sareeSpecifications">{{sareeSpecification}}</li>
+        </ul>
+
+        <h3 style="font-size: 20px;">Saree Care</h3>
+        <ul  class="sareeCare">
+          <li *ngFor="let care of product.sareeCare">{{care}}</li>
+        </ul>
+      </div>
+      
+     
       <!-- Add more details as needed -->
     </div>
   </div>
@@ -82,7 +88,7 @@
   <h3>Similar Products</h3>
 
   <div class="similar-products-container">
-    <button class="arrow left" (click)="scrollSimilarProducts('left')">&lt;</button>
+    <!-- <button class="arrow left" (click)="scrollSimilarProducts('left')">&lt;</button> -->
     <div class="similar-products-list">
       <div *ngFor="let similarProduct of visibleSimilarProducts" class="similar-product card"
         (click)="onRecordClick(similarProduct)">
@@ -96,7 +102,7 @@
       </div>
     </div>
 
-    <button class="arrow right" (click)="scrollSimilarProducts('right')">&gt;</button>
+    <!-- <button class="arrow right" (click)="scrollSimilarProducts('right')">&gt;</button> -->
   </div>
 </div>
     
