@@ -124,7 +124,7 @@ product:Product={
         'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493'];
       //this.product.quantity = params['quantity'];
       this.product.additionalImages =[params[0]['image2'],params[0]['image3'],params[0]['image4'],params[0]['image5']];
-
+this.similarProducts=params[0].similar_products
     this.updateVisibleSimilarProducts();
   }
 

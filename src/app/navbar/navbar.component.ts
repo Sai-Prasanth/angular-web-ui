@@ -54,10 +54,10 @@ export class NavbarComponent {
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
   }
-  async collectionApi(id:number){
-    console.log("navbar -",id);
-    (await this.productService.getCollectionApi(id)).subscribe((data:any)=>{
-      console.log(data);
-    })
-  }
+  // async collectionApi(id:number){
+  //   console.log("navbar -",id);
+  //   (await this.productService.getCollectionApi(id)).subscribe((data:any)=>{
+  //     console.log(data);
+  //   })
+  // }
 }

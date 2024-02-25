@@ -121,6 +121,7 @@ export class CommondisplayComponent {
   async onRecordClick(record: any) {
     console.log('Clicked Record:', record);
     let record1:any= await this.productApi();
+    console.log("after")
     this.productService.setRecord(record1.results);
     this.router.navigate(['/commonProductDisplay', record1]);
   }
@@ -154,9 +155,9 @@ export class CommondisplayComponent {
     this.updateVisibleRecords();
   }
   async productApi(){
-    await (await this.productService.getCollectionApi(123456)).subscribe(data=>{
-      console.log(data)
-    });
+    let x=await this.productService.getCollectionApi(123456)
+    console.log("x",x)
+    return x
   }
   
 }

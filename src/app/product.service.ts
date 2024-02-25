@@ -29,9 +29,16 @@ export class ProductService {
   //  return of(respone);
   // }
   
-  async getCollectionApi(product_code:any){
+  async getCollectionApi(product_code:any) :Promise<any>{
+    try{
     console.log("service -",product_code,"url" ,this.collectionApiUrl + product_code)
-    return await this.http.get(this.collectionApiUrl + product_code)
+    let d= await this.http.get(this.collectionApiUrl + product_code).toPromise()
+    console.log(d,"DAta")
+
+    return d}
+    catch(error:any){
+
+    }
   }
 
 }
