@@ -118,10 +118,11 @@ export class CommondisplayComponent {
       this.updateVisibleRecords1();
     }
   }
-  onRecordClick(record: any): void {
+  async onRecordClick(record: any) {
     console.log('Clicked Record:', record);
-    this.productService.setRecord(record);
-    this.router.navigate(['/commonProductDisplay', record]);
+    let record1:any= await this.productApi();
+    this.productService.setRecord(record1.results);
+    this.router.navigate(['/commonProductDisplay', record1]);
   }
   updateVisibleRecords1() {
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
@@ -151,6 +152,11 @@ export class CommondisplayComponent {
       occassion:''
     };
     this.updateVisibleRecords();
+  }
+  async productApi(){
+    await (await this.productService.getCollectionApi(123456)).subscribe(data=>{
+      console.log(data)
+    });
   }
   
 }

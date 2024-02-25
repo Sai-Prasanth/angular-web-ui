@@ -19,6 +19,7 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthserviceService } from '../authservice.service';
+import { ProductService} from '../product.service'
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -26,7 +27,7 @@ import { AuthserviceService } from '../authservice.service';
 })
 export class NavbarComponent {
   isUserLoggedIn = false;
-  constructor(private authService: AuthserviceService) {}
+  constructor(private authService: AuthserviceService,private productService:ProductService) {}
   ngOnInit() {
     let storeData = localStorage.getItem("isUserLoggedIn");
     console.log("StoreData: " + storeData);
@@ -52,5 +53,11 @@ export class NavbarComponent {
 
   toggleDropdown() {
     this.isDropdownOpen = !this.isDropdownOpen;
+  }
+  async collectionApi(id:number){
+    console.log("navbar -",id);
+    (await this.productService.getCollectionApi(id)).subscribe((data:any)=>{
+      console.log(data);
+    })
   }
 }

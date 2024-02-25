@@ -1,5 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
+interface Product {
+  name: string;
+  description: string;
+  image: string;
+  salePrice: number;
+  regularPrice: number;
+  code: string;
+  color: string[];
+  quantity: number;
+  additionalImages: string[];
+  sareeSpecifications: string[];
+  sareeCare: string[];
+  occassion: string[];
+}
 
 
 @Component({
@@ -12,28 +26,41 @@ export class CommonproductdisplayComponent implements OnInit {
   @Input() similarProductss: any ; // Input property to pass an array of similar products
   constructor(private productService:ProductService) { }
   productId: string='';
-
-  product = {
-    name: 'Product 1',
-    description: 'Mangalagiri handloom sarees are crafted from pure cotton with intricate Zari embellishments on the border and a plain body. Ideal for festive occasions, these sarees effortlessly combine tradition and sophistication. They are highly valued by devotees for both ceremonial and devotional wear, as Mangalagiri is home to the revered Lord Narasimha Temple.',
-    image: 'https://weaversdirect.in/cdn/shop/files/CS_002__silk_set294_shrestha_back__2023-7-18-12-45-14__2730X4096_cab5e750-1059-469c-b03c-38ba050f5394.jpg?v=1689664962',
-    salePrice: 19.99,
-    regularPrice:100,
-    code:'12345678',
-    color:['https://weaversdirect.in/cdn/shop/files/SILKIKKATHSAREE__silk_set170_tarannum_front2__2023-7-17-14-26-59__2730X4096_cded5307-8e01-4f99-b96f-f400c19ff44a.jpg?v=1689584721&width=493'
-    ,'https://weaversdirect.in/cdn/shop/files/IMG_20230717_114830.jpg?v=1689664962&width=493',
-    'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493'],
-    quantity:10,
-    additionalImages:['https://weaversdirect.in/cdn/shop/files/SILKIKKATHSAREE__silk_set170_tarannum_front2__2023-7-17-14-26-59__2730X4096_cded5307-8e01-4f99-b96f-f400c19ff44a.jpg?v=1689584721&width=493'
-    ,'https://weaversdirect.in/cdn/shop/files/IMG_20230717_114830.jpg?v=1689664962&width=493',
-    'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493','https://weaversdirect.in/cdn/shop/files/SILKIKKATHSAREE__silk_set170_tarannum_front2__2023-7-17-14-26-59__2730X4096_cded5307-8e01-4f99-b96f-f400c19ff44a.jpg?v=1689584721&width=493'
-    ,'https://weaversdirect.in/cdn/shop/files/IMG_20230717_114830.jpg?v=1689664962&width=493',
-    'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493'] ,
-    sareeSpecifications :['Material - Cotton','Length 5.5cm'],
-    sareeCare : ["Don't Wash","Don't wear"],
-    occassion:['Daily-Wear','Official']
+product:Product={
+  name: '',
+  description: '',
+  image: '',
+  salePrice: 0,
+  regularPrice: 0,
+  code: '',
+  color: [],
+  quantity: 0,
+  additionalImages: [],
+  sareeSpecifications: [],
+  sareeCare: [],
+  occassion: []
+}
+  // product = {
+  //   name: 'Product 1',
+  //   description: 'Mangalagiri handloom sarees are crafted from pure cotton with intricate Zari embellishments on the border and a plain body. Ideal for festive occasions, these sarees effortlessly combine tradition and sophistication. They are highly valued by devotees for both ceremonial and devotional wear, as Mangalagiri is home to the revered Lord Narasimha Temple.',
+  //   image: 'https://weaversdirect.in/cdn/shop/files/CS_002__silk_set294_shrestha_back__2023-7-18-12-45-14__2730X4096_cab5e750-1059-469c-b03c-38ba050f5394.jpg?v=1689664962',
+  //   salePrice: 19.99,
+  //   regularPrice:100,
+  //   code:'12345678',
+  //   color:['https://weaversdirect.in/cdn/shop/files/SILKIKKATHSAREE__silk_set170_tarannum_front2__2023-7-17-14-26-59__2730X4096_cded5307-8e01-4f99-b96f-f400c19ff44a.jpg?v=1689584721&width=493'
+  //   ,'https://weaversdirect.in/cdn/shop/files/IMG_20230717_114830.jpg?v=1689664962&width=493',
+  //   'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493'],
+  //   quantity:10,
+  //   additionalImages:['https://weaversdirect.in/cdn/shop/files/SILKIKKATHSAREE__silk_set170_tarannum_front2__2023-7-17-14-26-59__2730X4096_cded5307-8e01-4f99-b96f-f400c19ff44a.jpg?v=1689584721&width=493'
+  //   ,'https://weaversdirect.in/cdn/shop/files/IMG_20230717_114830.jpg?v=1689664962&width=493',
+  //   'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493','https://weaversdirect.in/cdn/shop/files/SILKIKKATHSAREE__silk_set170_tarannum_front2__2023-7-17-14-26-59__2730X4096_cded5307-8e01-4f99-b96f-f400c19ff44a.jpg?v=1689584721&width=493'
+  //   ,'https://weaversdirect.in/cdn/shop/files/IMG_20230717_114830.jpg?v=1689664962&width=493',
+  //   'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493'] ,
+  //   sareeSpecifications :['Material - Cotton','Length 5.5cm'],
+  //   sareeCare : ["Don't Wash","Don't wear"],
+  //   occassion:['Daily-Wear','Official']
     
-  };
+  // };
  similarProducts = [
     {
       name: 'Similar Product 1',
@@ -73,17 +100,30 @@ export class CommonproductdisplayComponent implements OnInit {
   currentIndex = 0;
 
   ngOnInit() {
+      // const params=this.productService.getRecord();
+      // console.log(params)
+      // this.product.name = params['name'];
+      // this.product.description = params['description'];
+      // this.product.image = params['image'];
+      // this.product.salePrice = params['salePrice'];
+      // this.product.regularPrice = params['regularPrice'];
+      // this.product.code = params['code'];
+      // this.product.color = params['color'];
+      // this.product.quantity = params['quantity'];
+      // this.product.additionalImages = params['additionalImages'];
       const params=this.productService.getRecord();
-console.log(params)
-      this.product.name = params['name'];
-      this.product.description = params['description'];
-      this.product.image = params['image'];
-      this.product.salePrice = params['salePrice'];
-      this.product.regularPrice = params['regularPrice'];
-      this.product.code = params['code'];
-      this.product.color = params['color'];
-      this.product.quantity = params['quantity'];
-      this.product.additionalImages = params['additionalImages'];
+      console.log(params)
+      this.product.name = params[0].collection['name'];
+      this.product.description = params[0].collection['description'];
+      this.product.image = params[0]['image1'];
+      this.product.salePrice = params[0]['discounted_price'];
+      this.product.regularPrice = params[0]['original_price'];
+      this.product.code = params[0]['product_code'];
+      this.product.color = ['https://weaversdirect.in/cdn/shop/files/SILKIKKATHSAREE__silk_set170_tarannum_front2__2023-7-17-14-26-59__2730X4096_cded5307-8e01-4f99-b96f-f400c19ff44a.jpg?v=1689584721&width=493'
+        ,'https://weaversdirect.in/cdn/shop/files/IMG_20230717_114830.jpg?v=1689664962&width=493',
+        'https://weaversdirect.in/cdn/shop/files/IMG_20230717_122017.jpg?v=1689664962&width=493'];
+      //this.product.quantity = params['quantity'];
+      this.product.additionalImages =[params[0]['image2'],params[0]['image3'],params[0]['image4'],params[0]['image5']];
 
     this.updateVisibleSimilarProducts();
   }

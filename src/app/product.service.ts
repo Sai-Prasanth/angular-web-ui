@@ -7,11 +7,11 @@ import { Observable, of } from 'rxjs';
 export class ProductService {
   
 
-  private apiUrl = 'your_api_endpoint';
-  //private http: HttpClient
+  private collectionApiUrl = 'http://127.0.0.1:8000/api/products/?product_code=';
+  
   private storageKey = 'productRecord';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   setRecord(record: any) {
     localStorage.setItem(this.storageKey, JSON.stringify(record));
@@ -29,5 +29,9 @@ export class ProductService {
   //  return of(respone);
   // }
   
+  async getCollectionApi(product_code:any){
+    console.log("service -",product_code,"url" ,this.collectionApiUrl + product_code)
+    return await this.http.get(this.collectionApiUrl + product_code)
+  }
 
 }
